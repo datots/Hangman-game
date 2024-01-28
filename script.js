@@ -126,11 +126,15 @@ function initializeKeyboard() {
 
       .keyboard-key {
         padding: 20px;
+        border-radius:4px;
+        font-size: 1rem;
+        outline:none;
         border: 1px solid #ccc;
         cursor: pointer;
         user-select: none;
         text-align: center;
         background-color:#5E63BA;
+        width: calc(100% / 9 - 5px);
 
       }
     `;
@@ -152,3 +156,8 @@ function handleKeyClick(key) {
 
 // Initialize the virtual keyboard
 initializeKeyboard();
+
+
+
+
+

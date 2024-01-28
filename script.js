@@ -90,7 +90,7 @@ function initializeKeyboard() {
   body.appendChild(keyboardStyles);
 
   // Define the keyboard layout
-  const keyboardLayout = ["qwertyuiop", "asdfghjkl", "zxcvbnm", "backspace"];
+  const keyboardLayout = ["ABCDEFGHIJ", "KLMNOPQRST", "UVWXYZ"];
 
   // Create and append keys to the keyboard
   keyboardLayout.forEach((row) => {
@@ -125,12 +125,13 @@ function initializeKeyboard() {
       }
 
       .keyboard-key {
-        padding: 10px;
+        padding: 20px;
         border: 1px solid #ccc;
         cursor: pointer;
         user-select: none;
         text-align: center;
         background-color:#5E63BA;
+
       }
     `;
 

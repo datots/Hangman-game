@@ -1,15 +1,298 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  margin: 4rem auto;
+  width: 95%;
+}
+
+/* Gallows Part */
+.gallows-box {
+  position: relative;
+  width: 45rem;
+  height: 58.1rem;
+}
+
+.rect-1,
+.rect-2,
+.rect-3 {
+  border-radius: 5px;
+  border: 3px solid #fffefe;
+  background: #000;
+  width: 3rem;
+}
+
+.rect-1 {
+  position: absolute;
+  left: 3.3rem;
+  z-index: 2;
+  height: 58.1rem;
+}
+
+.rect-2 {
+  position: absolute;
+  top: -12rem;
+  left: 15.4rem;
+  z-index: 3;
+  height: 35.3rem;
+  transform: rotate(90deg);
+}
+
+.rect-3 {
+  position: absolute;
+  left: 9.8rem;
+  top: 2.1rem;
+  z-index: 0;
+  height: 20.2rem;
+  transform: rotate(45deg);
+}
+.rect-4 {
+  position: absolute;
+  left: 29.5rem;
+  top: 7.2rem;
+  width: 1rem;
+  height: 7.4rem;
+  background: #000;
+}
+
+.rect-5 {
+  position: absolute;
+  background-color: #000;
+  border: 3px solid #fffefe;
+  border-radius: 5px;
+  z-index: 4;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
+}
+
+/* Body Parts */
+.person {
+  width: 10rem;
+  left: 25rem;
+  top: 15.6rem;
+  position: relative;
+}
+
+.head {
+  width: 10.1rem;
+  height: 10.1rem;
+  border-radius: 10.1rem;
+  border: 5px solid #909090;
+  background: #fff;
+}
+
+.body {
+  position: absolute;
+  top: 12rem;
+  left: 4.6rem;
+  width: 5px;
+  height: 13.1rem;
+  background-color: #909090;
+}
+.left-hand {
+  position: absolute;
+  top: 13rem;
+  left: -4rem;
+  width: 5px;
+  height: 10rem;
+  transform: rotate(39.64deg);
+  background: #909090;
+}
+.right-hand {
+  position: absolute;
+  top: 13rem;
+  left: 13rem;
+  width: 5px;
+  height: 10rem;
+  transform: rotate(-39.635deg);
+  background: #909090;
+}
+.left-leg {
+  position: absolute;
+  top: 28rem;
+  left: -4rem;
+  width: 5px;
+  height: 10rem;
+  transform: rotate(39.64deg);
+  background: #909090;
+}
+.right-leg {
+  position: absolute;
+  top: 28rem;
+  left: 13rem;
+  width: 5px;
+  height: 10rem;
+  transform: rotate(-39.635deg);
+  background: #909090;
+}
+
+.display-none {
+  display: none;
+}
+
+/* Questions Part */
+.gameplay {
+  display: flex;
+}
+.gameplay-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 80rem;
+  padding: 1rem;
+}
+
+.answer {
+  display: flex;
+  gap: 4rem;
+  list-style: none;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1rem;
+  height: 5rem;
+}
+
+.letter {
+  width: 3rem;
+  border-bottom: 3px solid black;
+}
+
+.guessed {
+  border: none;
+}
+
+.hint {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.guesses-txt {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.red-txt {
+  color: red;
+}
+
+.keyboard {
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.key {
   display: flex;
   align-items: center;
-  min-height: 100vh;
-  gap: 350px ;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 7.5rem;
+  height: 5.5rem;
+  border-radius: 5px;
+  background-color: #4c04d3;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.key:hover {
+  background-color: #7da3eb;
+}
+
+.pressed-key {
+  background-color: #7358e8;
+  pointer-events: none;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  margin-top: -4rem;
+  display: flex;
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.4s ease;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  max-width: 50rem;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 7rem;
+}
+
+.modal h4 {
+  font-size: 3rem;
+}
+
+.modal p {
+  font-size: 2.5rem;
+  margin: 1.5rem 0 3rem;
+  font-weight: 600;
+}
+
+.modal span {
+  color: #5e63ba;
+  font-weight: 600;
+}
+
+.modal button {
+  padding: 1.2rem 2.3rem;
+  background-color: #5359be;
+  border-radius: 7px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.modal button:hover {
+  background-color: #787cc4;
 }

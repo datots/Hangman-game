@@ -83,6 +83,8 @@ const wordList = [
   },
 ];
 
+//Body
+
 // MAIN CONTAINER
 
 const mainsection = document.createElement("section");
@@ -399,7 +401,7 @@ document.addEventListener("keydown", (e) => {
   // Check if the pressed key is a letter
   if (/^[a-z]$/.test(pressedKey)) {
     // Find the button with the corresponding letter and trigger its click event
-    const buttons = document.querySelectorAll('.btn');
+    const buttons = document.querySelectorAll(".btn");
     for (const button of buttons) {
       if (button.innerText === pressedKey.toUpperCase()) {
         button.click();

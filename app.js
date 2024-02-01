@@ -393,3 +393,18 @@ modalContent.appendChild(modalButton);
 modalButton.addEventListener("click", resetGame);
 getRandomWord();
 
+// Add this event listener to the document to capture key presses
+document.addEventListener("keydown", (e) => {
+  const pressedKey = e.key.toLowerCase();
+  // Check if the pressed key is a letter
+  if (/^[a-z]$/.test(pressedKey)) {
+    // Find the button with the corresponding letter and trigger its click event
+    const buttons = document.querySelectorAll('.btn');
+    for (const button of buttons) {
+      if (button.innerText === pressedKey.toUpperCase()) {
+        button.click();
+        break; // Break the loop after clicking the button
+      }
+    }
+  }
+});
